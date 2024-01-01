@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  article#google-maps-gui
+  form
+    p Start typing your address and choose your address from the generated list
+    label Address
+    input#address_text_field(type='text' required='')
+    label Postal code
+    input#postal_code_text_field(type='text' required='')
+    label Locality
+    input#locality_text_field(type='text' required='')
+    label Country
+    input#country_text_field(type='text' required='')
+    li.li-text-decor
+      button.button-main(type='submit') Click me to submit

@@ -1,0 +1,68 @@
+extends layout
+
+block content
+  body.background-homepage
+    h1.page-title.margin-left-32 Register page
+    -if (failed_register_message !== undefined) {
+        p.desciption= failed_register_message
+    -}
+    form.form-default(action='/register' method='post' id='register_form' enctype="multipart/form-data")
+        ul.list-for-register
+            li
+                label.form-label(for='username') E-mail address or mobile phone number:
+                input#username.form-input(type='text' name='username' required)
+            li
+                label.form-label(for='password') Password:
+                input#password.form-input(type='password' name='password' required)
+            li
+                label.form-label(for='first_name') First name:
+                input#username.form-input(type='text' name='first_name' required)
+            li
+                label.form-label(for='last_name') Last name:
+                input#password.form-input(type='text' name='last_name' required)
+
+            li
+                label.form-label(for='credit_card_number') Credit card number:
+                input#username.form-input(type='text' name='credit_card_number' required)
+            li
+                label.form-label(for='credit_card_cvc') Credit card cvc:
+                input#password.form-input(type='text' name='credit_card_cvc')
+            li
+                label.form-label(for='credit_card_effective_date') Credit card effective date:
+                input#username.form-input(type='text' name='credit_card_effective_date' required)
+            li
+                label.form-label(for='credit_card_expiry_date') Credit card expiry date:
+                input#username.form-input(type='text' name='credit_card_expiry_date' required)
+            li
+                label.form-label(for='phone_number') Phone number:
+                input#username.form-input(type='text' name='phone_number' required)
+            li
+                label.form-label(for='email') Email:
+                input#username.form-input(type='text' name='email' required)
+                
+            li 
+                label.form-label(for='avatar') Choose your photo identification:
+                <input type="file" id="avatar" name="avatar" style="cursor: pointer;" accept="image/png, image/jpeg" required>
+                aside#image_container 
+                    img#image_output_from_upload
+            li 
+                label(for='user_type_select') Choose your account type:
+                select#user_type_select(required name='user_type')
+                    option(value='Passenger') Passenger
+                    option(value='Driver') Driver
+                    option(value='Driver_and_Passenger') Driver and passenger
+
+            li
+                label.form-label(for='insurance_policy_number' id="insurance_policy_number_label") Insurance policy number:
+                input#insurance_policy_number.form-input(type='text' name='insurance_policy_number')
+
+            li
+                label.form-label(for='effective' id="insurance_effective_date_label") Insurance effective date:
+                input#insurance_effective_date.form-input(type='text' name='insurance_effective_date')
+
+            li
+                label.form-label(for='insurance_expiry_date' id="insurance_expiry_date_label") Insurance expiry date:
+                input#insurance_expiry_date.form-input(type='text' name='insurance_expiry_date')
+
+        button.button-main(action='submit') Register your account
+    script(src='javascripts/display_form_image.js')
